@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+
+    <data class=".databinding.FragmentHomeBinding">
+
+        <variable
+            name="mainViewModel"
+            type="com.bm.currencyapplication.convertcurrency.presentation.ConvertCurrencyViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        tools:context=".convertcurrency.presentation.MainActivity">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            app:layout_constraintGuide_percent="0.2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/guideline1"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:text="@string/app_name"/>
+
+        <FrameLayout
+            android:id="@+id/frame1"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+
+            android:background="@drawable/background"
+            app:layout_constraintEnd_toStartOf="@id/btnSwap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline1">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerFrom"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:entries="@{mainViewModel.fromKeys}"
+                android:selectedItemPosition="@={mainViewModel.currencyFrom}" />
+        </FrameLayout>
+
+
+        <ImageButton
+            android:id="@+id/btnSwap"
+            android:layout_width="80dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:background="@color/white"
+            android:contentDescription="@string/content"
+            android:scaleType="center"
+            android:src="@drawable/swap"
+            app:layout_constraintBottom_toBottomOf="@id/frame1"
+            app:layout_constraintEnd_toStartOf="@id/frame2"
+            app:layout_constraintStart_toEndOf="@id/frame1"
+            app:layout_constraintTop_toTopOf="@id/frame1" />
+
+        <FrameLayout
+            android:id="@+id/frame2"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:background="@drawable/background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSwap"
+            app:layout_constraintTop_toBottomOf="@id/guideline1">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerTo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:labelFor="@id/result"
+                android:entries="@{mainViewModel.toKeys}"
+                android:selectedItemPosition="@={mainViewModel.currencyTo}" />
+        </FrameLayout>
+
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:afterTextChanged="@{(text)->mainViewModel.onAmountTextChanged(text)}"
+            android:background="@drawable/edit_background"
+            android:hint="@string/_1"
+            android:autofillHints=""
+            android:inputType="number"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@={mainViewModel.amountCurrentValue}"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/frame1"
+            app:layout_constraintStart_toStartOf="@id/frame1"
+            app:layout_constraintTop_toBottomOf="@id/frame1" />
+
+        <EditText
+            android:id="@+id/result"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:afterTextChanged="@{(text)->mainViewModel.onResultTextChanged(text)}"
+            android:background="@drawable/edit_background"
+            android:hint="@string/_0"
+            android:autofillHints=""
+            android:inputType="number"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@={mainViewModel.resultCurrentValue}"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/frame2"
+            app:layout_constraintStart_toStartOf="@id/frame2"
+            app:layout_constraintTop_toBottomOf="@id/frame2" />
+
+        <Button
+            android:id="@+id/btnShowDetails"
+            android:layout_width="200dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/amount" />
+
+        <ProgressBar
+            android:id="@+id/progresBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnShowDetails"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
