@@ -3,7 +3,6 @@ package com.bm.currencyapplication.historicaldata.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import ccom.bm.currencyapplication.historicaldata.presentation.HistoricalDataState
 import com.bm.currencyapplication.convertcurrency.domain.HistoricalRateModel
 import com.bm.currencyapplication.historicaldata.domain.HistoricalDataUsecase
 

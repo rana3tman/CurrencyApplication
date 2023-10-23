@@ -1,4 +1,4 @@
-package ccom.bm.currencyapplication.historicaldata.presentation
+package com.bm.currencyapplication.historicaldata.presentation
 
 import com.bm.currencyapplication.convertcurrency.domain.HistoricalRateModel
 
