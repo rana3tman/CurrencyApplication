@@ -5,12 +5,21 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/fragment_details"
+        android:name="com.bm.currencyapplication.historicaldata.presentation.DetailsFragment"
+        android:label="vidv_ocr_fragment_capture_id_v2"
+        tools:layout="@layout/fragment_details">
 
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.bm.currencyapplication.convertcurrency.presentation.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
-
+        <action
+            android:id="@+id/action_homeFragment_to_fragment_details"
+            app:destination="@id/fragment_details"
+            />
     </fragment>
 </navigation>

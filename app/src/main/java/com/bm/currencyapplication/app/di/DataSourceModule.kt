@@ -1,6 +1,7 @@
 package com.bm.currencyapplication.app.di
 
 import com.bm.currencyapplication.convertcurrency.data.RemoteConvertCurrencyDataSource
+import com.bm.currencyapplication.historicaldata.data.RemoteHistoricalDataSource
 import com.bm.currencyapplication.network.ApiHelperImp
 import dagger.Module
 import dagger.Provides
@@ -17,6 +18,9 @@ class DataSourceModule {
         return RemoteConvertCurrencyDataSource(apiHelper)
     }
 
-
+    @Provides
+    fun provideDetailsDataSource(apiHelper: ApiHelperImp): RemoteHistoricalDataSource {
+        return RemoteHistoricalDataSource(apiHelper)
+    }
 
 }

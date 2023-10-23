@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.NavHostFragment
+import com.bm.currencyapplication.R
 
 import com.bm.currencyapplication.databinding.FragmentHomeBinding
 
@@ -31,7 +33,30 @@ class HomeFragment : Fragment() {
 
 
         binding.btnShowDetails.setOnClickListener {
-
+            if (convertCurrencyViewModel.currentRate!=0.0&&convertCurrencyViewModel.currencyFrom.value != 0 && convertCurrencyViewModel.currencyTo.value != 0 && convertCurrencyViewModel.amountCurrentValue.value!!.isNotEmpty()) {
+                addDetailsFragment(
+                    convertCurrencyViewModel.fromKeys[convertCurrencyViewModel.currencyFrom.value!!],
+                    convertCurrencyViewModel.toKeys[convertCurrencyViewModel.currencyTo.value!!],
+                    listOf(
+                        "USD",
+                        "JPY",
+                        "GBP",
+                        "CNY",
+                        "AUD",
+                        "CAD",
+                        "CHF",
+                        "HKD",
+                        "SGD",
+                        "SEK",
+                        "KRW"
+                    ),
+                    convertCurrencyViewModel.amountCurrentValue.value!!.toDouble()
+                )
+            } else Toast.makeText(
+                requireContext(),
+                getString(R.string.please_select_currencies_or_enter_amount),
+                Toast.LENGTH_LONG
+            ).show()
 
         }
         binding.btnSwap.setOnClickListener {
@@ -116,6 +141,23 @@ class HomeFragment : Fragment() {
 
     }
 
+    private fun addDetailsFragment(
+        currencyFrom: String,
+        currencyTo: String,
+        symbols: List<String>,
+        base: Double
+    ) {
 
+        val bundle = Bundle()
+        bundle.putString("currency_from", currencyFrom)
+        bundle.putString("currency_to", currencyTo)
+        bundle.putDouble("base", base)
+        bundle.putStringArrayList("symbols", ArrayList(symbols))
+
+
+        NavHostFragment.findNavController(this)
+            .navigate(R.id.action_homeFragment_to_fragment_details, bundle)
+
+    }
 
 }
