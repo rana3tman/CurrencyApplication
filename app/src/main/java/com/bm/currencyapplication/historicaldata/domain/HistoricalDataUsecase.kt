@@ -12,7 +12,7 @@ class HistoricalDataUsecase @Inject constructor(private var historicalDataReposi
         emit(
             if (result.success)
                 DataState.Success(result)
-            else DataState.Error(result.error.type)
+            else DataState.Error(result.error.info)
         )
 
     }

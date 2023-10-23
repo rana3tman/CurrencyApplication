@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bm.currencyapplication.convertcurrency.domain.HistoricalRateModel
 import com.bm.currencyapplication.historicaldata.domain.HistoricalDataUsecase
+import com.bm.currencyapplication.network.ErrorHandler
 
 import com.example.currencyconverterapp.utils.BaseViewModel
 import com.example.currencyconverterapp.utils.Calculator
@@ -116,7 +117,7 @@ class HistoricalDataViewModel @Inject constructor(private var historicalDataUsec
                 }
 
             } catch (exception: Exception) {
-                postState(HistoricalDataState.Error(exception.message!!))
+                postState(HistoricalDataState.Error(ErrorHandler.handleFailureRequest(exception)))
             }
         }
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bm.currencyapplication.convertcurrency.domain.AvailableRatesUsecase
 import com.bm.currencyapplication.convertcurrency.domain.ConvertCurrencyUsecase
+import com.bm.currencyapplication.network.ErrorHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.example.currencyconverterapp.utils.BaseViewModel
@@ -97,7 +98,7 @@ class ConvertCurrencyViewModel @Inject constructor(
 
 
             } catch (exception: Exception) {
-                postState(ConvertCurrencyState.Error(exception.message!!))
+                postState(ConvertCurrencyState.Error(ErrorHandler.handleFailureRequest(exception)))
             }
 
         }

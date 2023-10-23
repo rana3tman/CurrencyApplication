@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import ccom.bm.currencyapplication.historicaldata.presentation.HistoricalDataState
 import com.bm.currencyapplication.R
 import com.bm.currencyapplication.databinding.FragmentDetailsBinding
 
