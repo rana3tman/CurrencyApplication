@@ -12,7 +12,7 @@ class ConvertCurrencyUsecase @Inject constructor(private var availableRatesRepos
         emit(
             if (result.success)
                 (DataState.Success(result))
-            else (DataState.Error(result.error.info))
+            else (DataState.Error(result.error.type))
         )
 
     }
