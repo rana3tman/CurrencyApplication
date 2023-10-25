@@ -1,7 +1,6 @@
 package com.bm.currencyapplication.convertcurrency.domain
 
 
-
 interface AvailableRatesRepository {
     suspend fun getAllAvailableRates(): AvailableRatesModel
 

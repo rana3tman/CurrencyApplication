@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
 
 
         binding.btnShowDetails.setOnClickListener {
-            if (convertCurrencyViewModel.currentRate!=0.0&&convertCurrencyViewModel.currencyFrom.value != 0 && convertCurrencyViewModel.currencyTo.value != 0 && convertCurrencyViewModel.amountCurrentValue.value!!.isNotEmpty()) {
+            if (convertCurrencyViewModel.currentRate != 0.0 && convertCurrencyViewModel.currencyFrom.value != 0 && convertCurrencyViewModel.currencyTo.value != 0 && convertCurrencyViewModel.amountCurrentValue.value!!.isNotEmpty()) {
                 addDetailsFragment(
                     convertCurrencyViewModel.fromKeys[convertCurrencyViewModel.currencyFrom.value!!],
                     convertCurrencyViewModel.toKeys[convertCurrencyViewModel.currencyTo.value!!],

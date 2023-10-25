@@ -1,7 +1,6 @@
 package com.bm.currencyapplication.app.di
 
 
-
 import com.bm.currencyapplication.convertcurrency.domain.AvailableRatesRepository
 import com.bm.currencyapplication.convertcurrency.domain.AvailableRatesUsecase
 import com.bm.currencyapplication.convertcurrency.domain.ConvertCurrencyUsecase

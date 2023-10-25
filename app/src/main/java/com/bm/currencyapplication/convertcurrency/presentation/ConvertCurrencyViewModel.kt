@@ -32,7 +32,7 @@ class ConvertCurrencyViewModel @Inject constructor(
 
     var currencyFrom = MutableLiveData(0)
     var currencyTo = MutableLiveData(0)
-     var currentRate: Double = 0.0
+    var currentRate: Double = 0.0
     private lateinit var rateValues: List<Double>
     private var rateKeys = listOf<String>()
     var fromKeys = listOf<String>()
