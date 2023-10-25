@@ -7,9 +7,9 @@ import com.bm.currencyapplication.convertcurrency.domain.HistoricalRateModel
 import com.bm.currencyapplication.historicaldata.domain.HistoricalDataUsecase
 import com.bm.currencyapplication.network.ErrorHandler
 
-import com.example.currencyconverterapp.utils.BaseViewModel
-import com.example.currencyconverterapp.utils.Calculator
-import com.example.currencyconverterapp.utils.DataState
+import com.bm.currencyapplication.utils.BaseViewModel
+import com.bm.currencyapplication.utils.Calculator
+import com.bm.currencyapplication.utils.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async

@@ -9,9 +9,9 @@ import com.bm.currencyapplication.convertcurrency.domain.ConvertCurrencyUsecase
 import com.bm.currencyapplication.network.ErrorHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import com.example.currencyconverterapp.utils.BaseViewModel
-import com.example.currencyconverterapp.utils.Calculator
-import com.example.currencyconverterapp.utils.DataState
+import com.bm.currencyapplication.utils.BaseViewModel
+import com.bm.currencyapplication.utils.Calculator
+import com.bm.currencyapplication.utils.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import java.text.SimpleDateFormat
@@ -93,6 +93,7 @@ class ConvertCurrencyViewModel @Inject constructor(
                         is DataState.Error -> {
                             postState(ConvertCurrencyState.Error(dataState.message))
                         }
+
                     }
                 }
 
@@ -175,6 +176,7 @@ class ConvertCurrencyViewModel @Inject constructor(
 
                                 postState(ConvertCurrencyState.Error(dataState.message))
                             }
+
                         }
                     }
 

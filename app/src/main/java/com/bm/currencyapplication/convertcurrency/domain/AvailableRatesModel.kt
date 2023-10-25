@@ -1,6 +1,6 @@
 package com.bm.currencyapplication.convertcurrency.domain
 
-import com.example.currencyconverterapp.utils.ErrorModel
+import com.bm.currencyapplication.utils.ErrorModel
 
 data class AvailableRatesModel(
     var success: Boolean,

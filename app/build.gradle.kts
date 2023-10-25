@@ -34,6 +34,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -52,6 +53,8 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation("com.google.truth:truth:1.0.1")
+    androidTestImplementation("com.google.truth:truth:1.0.1")
 
     // retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -70,7 +73,16 @@ dependencies {
 
     //navigation
     implementation ("androidx.navigation:navigation-fragment-ktx:2.6.0")
+
+    //mockito for creating mocks and templates
+    testImplementation ("org.mockito:mockito-core:5.3.1")
+    testImplementation ("org.mockito.kotlin:mockito-kotlin:4.1.0")
+
+
+
+
 }
+
 kapt {
     correctErrorTypes = true
 }

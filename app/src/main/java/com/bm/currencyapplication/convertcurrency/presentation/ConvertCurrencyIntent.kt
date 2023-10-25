@@ -1,6 +1,6 @@
 package com.bm.currencyapplication.convertcurrency.presentation
 
-import com.example.currencyconverterapp.utils.BaseIntent
+import com.bm.currencyapplication.utils.BaseIntent
 
 sealed class ConvertCurrencyIntent : BaseIntent() {
 

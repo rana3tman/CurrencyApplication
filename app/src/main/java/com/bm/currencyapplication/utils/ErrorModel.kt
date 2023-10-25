@@ -1,4 +1,4 @@
-package com.example.currencyconverterapp.utils
+package com.bm.currencyapplication.utils
 
 data class ErrorModel(
     var code: Int,

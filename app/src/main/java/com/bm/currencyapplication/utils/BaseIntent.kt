@@ -1,4 +1,4 @@
-package com.example.currencyconverterapp.utils
+package com.bm.currencyapplication.utils
 
 open class BaseIntent {
 

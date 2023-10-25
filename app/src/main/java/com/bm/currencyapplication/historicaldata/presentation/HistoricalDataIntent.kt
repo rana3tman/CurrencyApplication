@@ -1,6 +1,6 @@
 package com.bm.currencyapplication.historicaldata.presentation
 
-import com.example.currencyconverterapp.utils.BaseIntent
+import com.bm.currencyapplication.utils.BaseIntent
 
 sealed class HistoricalDataIntent : BaseIntent() {
 
